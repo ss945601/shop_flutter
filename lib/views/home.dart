@@ -1,4 +1,3 @@
-import 'package:apps/views/orderList.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,8 +8,6 @@ import '../cubit/shop_cubit.dart';
 import '../desktop_view/window_bar.dart';
 import '../responsive.dart';
 import 'package:lottie/lottie.dart';
-
-import 'shop.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -26,7 +23,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   void switchPage(Widget newPage) {
     setState(() {
-      _boarderController.duration = Duration(seconds: 3);
+      _boarderController.duration = const Duration(seconds: 3);
       _boarderController.forward(from: 0);
       page = newPage;
     });
@@ -37,10 +34,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     // TODO: implement initState
     super.initState();
     _boarderController = AnimationController(vsync: this);
-    _boarderController.duration = Duration(seconds: 3);
+    _boarderController.duration = const Duration(seconds: 3);
     _boarderController.forward(from: 1);
     context.read<ShopCubit>().processCsv(context);
-    switchPage(Container(margin: EdgeInsets.all(30), child: Shop(switchPage)));
+    switchPage(Container(margin: const EdgeInsets.all(30), child: Container()));
   }
 
   @override
@@ -90,7 +87,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   )
                 : null,
             drawer: Responsive.isDesktop(context)
-                ? SizedBox.shrink()
+                ? const SizedBox.shrink()
                 : SizedBox(
                     width: MediaQuery.of(context).size.width / 1.8,
                     child: SideMenu(switchPage)),
@@ -170,22 +167,23 @@ class _SideMenuState extends State<SideMenu> {
                 ),
               ),
               DrawerListTile(
-                title: "商品列表",
+                title: "Item1",
                 svgSrc: "assets/icons/menu_dashbord.svg",
                 press: () {
                   widget.switchPage(Container(
-                      margin: EdgeInsets.all(30),
-                      child: Shop(widget.switchPage)));
-                  context.read<ShopCubit>().processCsv(context);
+                      margin: const EdgeInsets.all(30),
+                      child: const Text("Item1 Content")));
                   Get.back();
                 },
               ),
               DrawerListTile(
-                title: "訂單查詢",
-                svgSrc: "assets/icons/Search.svg",
+                title: "Item2",
+                svgSrc: "assets/icons/menu_setting.svg",
                 press: () {
-                  widget.switchPage(OrderList(widget.switchPage));
-                  context.read<ShopCubit>().processCsv(context);
+                  widget.switchPage(Container(
+                    margin: const EdgeInsets.all(30),
+                    child: const Text("Item2 Content"),
+                  ));
                   Get.back();
                 },
               ),

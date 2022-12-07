@@ -9,9 +9,9 @@ Color sidebarColor = const Color(0xFF223a5e);
 Color backgroundStartColor = Color.fromARGB(255, 3, 34, 81);
 Color backgroundEndColor = Color.fromARGB(255, 247, 249, 251);
 const defaultPadding = 16.0;
-const appName = "瘋店長Funstory";
+const appName = "標題";
 
 //* Desktop config
 const desktopWindowSize = Size(960, 540);
-const desktopWindowIconPath = "assets/icons/dms_logo.svg";
+const desktopWindowIconPath = "assets/icons/Figma_file.svg";
 const sidebarDefaultWidth = 250.0;

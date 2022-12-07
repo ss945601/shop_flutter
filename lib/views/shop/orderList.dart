@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:apps/cubit/order_cubit.dart';
 import 'package:apps/cubit/shop_cubit.dart';
 import 'package:apps/util.dart';
-import 'package:apps/views/shop.dart';
+import 'package:apps/views/shop/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getwidget/getwidget.dart';
